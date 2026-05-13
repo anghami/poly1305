@@ -77,7 +77,7 @@ func (p *Hash) Write(msg []byte) (int, error) {
 
 	if p.off > 0 {
 		dif := TagSize - p.off
-		if n <= dif {
+		if n < dif {
 			p.off += copy(p.buf[p.off:], msg)
 			return n, nil
 		}
